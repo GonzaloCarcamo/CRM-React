@@ -5,7 +5,10 @@ const Layout = () => {
     return(
         <div className='layout'>
             <div className='menu'>
-                <h2>CRM with React</h2>
+                <div className='title'>
+                    <h2>CRM with</h2>
+                    <img src="https://coollogo.net/wp-content/uploads/2021/03/React-logo.svg" />    
+                </div>
 
                 <nav className='nav'>
                     <Link to="/clients">Clients</Link>

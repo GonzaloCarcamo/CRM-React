@@ -3,8 +3,11 @@ import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import './formulario.css'
 import Alerts from './Alerts'
+import { useNavigate } from 'react-router-dom'
 
 const Formulario = () => {
+
+    const navigate = useNavigate()
 
     const newClientSchema = Yup.object().shape({
         name: Yup.string()
@@ -34,10 +37,9 @@ const Formulario = () => {
                 }
             })
 
-            console.log(res)
-
             const result = await res.json()
-            console.log(result)
+
+            navigate('/clients')
 
         } catch (error) {
             console.log(error)
@@ -58,8 +60,10 @@ const Formulario = () => {
                     notes: ''
                 }}
 
-                onSubmit={(values) => {
-                    handleSubmit(values)
+                onSubmit={ async (values, {resetForm}) => {
+                    await handleSubmit(values)
+
+                    resetForm()
                 }}
 
                 validationSchema={newClientSchema}
