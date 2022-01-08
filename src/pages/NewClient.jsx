@@ -1,12 +1,11 @@
 import React from 'react'
+import Formulario from '../components/Formulario'
 import './new.css'
 
 const NewClient = () => {
     return(
         <div class="new">
-            <h1>New Client</h1>
-
-            <p>Fields for a client registration</p>
+            <Formulario />
         </div>
         
     )
