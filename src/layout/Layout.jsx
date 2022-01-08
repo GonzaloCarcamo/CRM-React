@@ -1,12 +1,24 @@
-import {Outlet} from 'react-router-dom'
+import {Outlet, Link } from 'react-router-dom'
+import './layout.css'
 
 const Layout = () => {
     return(
-        <div>
-            <h1>Desde el Layout.jsx</h1>
+        <div className='layout'>
+            <div className='menu'>
+                <h2>CRM with React</h2>
 
-            <Outlet/>
+                <nav className='nav'>
+                    <Link to="/clients">Clients</Link>
+                    <Link to="/clients/new">New Client</Link>
+                </nav>
+            </div>
+
+            <div className='content'>
+                <Outlet/>
+            </div>
+            
         </div>
+        
         
     )
 }

@@ -1,9 +1,12 @@
 import React from 'react'
+import './new.css'
 
 const NewClient = () => {
     return(
-        <div>
-            <h1>Desde el NewClient.jsx</h1>
+        <div class="new">
+            <h1>New Client</h1>
+
+            <p>Fields for a client registration</p>
         </div>
         
     )
