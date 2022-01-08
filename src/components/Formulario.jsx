@@ -1,12 +1,31 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
 import './formulario.css'
+import Alerts from './Alerts'
 
 const Formulario = () => {
+
+    const newClientSchema = Yup.object().shape({
+        name: Yup.string()
+                 .required('Name is required')
+                 .max(20,'Name must have 20 letters max')
+                 .min(3, 'Name must have 3 letters min'),
+        business: Yup.string()
+                 .required('Business is required'),
+        email: Yup.string()
+                 .email('Email not valid')
+                 .required('Email is required'),
+        telephone: Yup.number()
+                 .integer('Telephone not valid')
+                 .positive('Telephone not valid')
+                 .typeError('Telephone not valid'),
+    })
 
     const handleSubmit = (values) => {
         console.log(values)
     }
+
 
     return(
         <div class="formulario">
@@ -24,9 +43,13 @@ const Formulario = () => {
                 onSubmit={(values) => {
                     handleSubmit(values)
                 }}
+
+                validationSchema={newClientSchema}
             >
 
-                {() => (
+                {({errors, touched}) => {
+                    return(
+                
                 <Form>
                     <div class="field">
                         <label htmlFor='name'>Name:</label>
@@ -36,6 +59,10 @@ const Formulario = () => {
                             placeholder="client name..."
                             name="name"
                         />
+
+                        {errors.name && touched.name ? (
+                            <Alerts>{errors.name}</Alerts>
+                        ) : null }
                     </div>
 
                     <div class="field">
@@ -46,6 +73,10 @@ const Formulario = () => {
                             placeholder="business name..."
                             name="business"
                         />
+
+                        {errors.business && touched.business ? (
+                            <Alerts>{errors.business}</Alerts>
+                        ) : null }
                     </div>
 
                     <div class="field">
@@ -56,6 +87,11 @@ const Formulario = () => {
                             placeholder="write the email..."
                             name="email"
                         />
+
+
+                        {errors.email && touched.email ? (
+                            <Alerts>{errors.email}</Alerts>
+                        ) : null }
                     </div>
 
                     <div class="field">
@@ -66,6 +102,11 @@ const Formulario = () => {
                             placeholder="write the telephone..."
                             name="telephone"
                         />
+
+
+                        {errors.telephone && touched.telephone ? (
+                            <Alerts>{errors.telephone}</Alerts>
+                        ) : null }
                     </div>
 
                     <div class="field">
@@ -77,6 +118,11 @@ const Formulario = () => {
                             placeholder="write the notes..."
                             name="notes"
                         />
+
+
+                        {errors.notes && touched.notes ? (
+                            <Alerts>{errors.notes}</Alerts>
+                        ) : null }
                     </div>
 
                     <input 
@@ -84,7 +130,7 @@ const Formulario = () => {
                         value="Add client" 
                     />
                 </Form>
-                )}
+                )}}
             </Formik>
         </div>
         

@@ -17,6 +17,12 @@ input, textarea{
     border: none;
 }
 
+.error{
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
 textarea{
     height: 60px;
     margin-bottom: 20px;
