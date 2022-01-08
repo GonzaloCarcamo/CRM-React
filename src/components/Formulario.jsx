@@ -3,6 +3,11 @@ import { Formik, Form, Field } from 'formik'
 import './formulario.css'
 
 const Formulario = () => {
+
+    const handleSubmit = (values) => {
+        console.log(values)
+    }
+
     return(
         <div class="formulario">
             <h2>Register Client</h2>
@@ -14,6 +19,10 @@ const Formulario = () => {
                     email: '',
                     telephone: '',
                     notes: ''
+                }}
+
+                onSubmit={(values) => {
+                    handleSubmit(values)
                 }}
             >
 

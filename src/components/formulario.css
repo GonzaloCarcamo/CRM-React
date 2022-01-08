@@ -26,4 +26,5 @@ input[type=submit]{
     height: 30px;
     background-color: rgb(20, 20, 20);
     color: rgb(226, 226, 226);
+    font-weight: 900;
 }
