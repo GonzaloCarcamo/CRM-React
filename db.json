@@ -1,12 +1,12 @@
 {
   "clients": [
     {
-      "name": "Otro cliente",
-      "business": "Otra empresa",
-      "email": "otro@otro.com",
-      "telephone": "123123",
-      "notes": "Otro comentario",
-      "id": 2
+      "name": "Gonzalo Cárcamo",
+      "business": "Empresa Gonzalo",
+      "email": "gonzalo.eduardo.carcamo@gmail.com",
+      "telephone": "56950869897",
+      "notes": "Esto es una prueba",
+      "id": 1
     }
   ]
 }

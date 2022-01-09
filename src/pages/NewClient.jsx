@@ -4,13 +4,11 @@ import './new.css'
 const NewClient = () => {
 
     return(
-        <div class="new">
+        <div className="new">
             <Formulario />
         </div>
         
     )
 }
-
-
 
 export default NewClient

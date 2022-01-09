@@ -42,10 +42,6 @@ const Formulario = ({client, loading}) => {
                         "Content-Type": "application/json"
                     }
                 })
-    
-                const result = await res.json()
-    
-                navigate('/clients')
 
             }else{
                 const url = 'http://localhost:4000/clients'
@@ -74,7 +70,7 @@ const Formulario = ({client, loading}) => {
 
         loading ? <Spinner /> : (
 
-        <div class="formulario">
+        <div className="formulario">
             <h2>{client?.name ? 'Edit Client' : 'Add Client'}</h2>
 
             <Formik
@@ -101,7 +97,7 @@ const Formulario = ({client, loading}) => {
                     return(
                 
                 <Form>
-                    <div class="field">
+                    <div className="field">
                         <label htmlFor='name'>Name:</label>
                         <Field 
                             id="name"
@@ -115,7 +111,7 @@ const Formulario = ({client, loading}) => {
                         ) : null }
                     </div>
 
-                    <div class="field">
+                    <div className="field">
                         <label htmlFor='business'>Business Name:</label>
                         <Field 
                             id="business"
@@ -129,7 +125,7 @@ const Formulario = ({client, loading}) => {
                         ) : null }
                     </div>
 
-                    <div class="field">
+                    <div className="field">
                         <label htmlFor='email'>Email:</label>
                         <Field 
                             id="email"
@@ -144,7 +140,7 @@ const Formulario = ({client, loading}) => {
                         ) : null }
                     </div>
 
-                    <div class="field">
+                    <div className="field">
                         <label htmlFor='telephone'>Telephone:</label>
                         <Field 
                             id="telephone"
@@ -159,7 +155,7 @@ const Formulario = ({client, loading}) => {
                         ) : null }
                     </div>
 
-                    <div class="field">
+                    <div className="field">
                         <label htmlFor='notes'>Notes:</label>
                         <Field 
                             as="textarea"
@@ -187,7 +183,7 @@ const Formulario = ({client, loading}) => {
     )
 }
 
-Formulario.defaultPropos = {
+Formulario.defaultProps = {
     client: {},
     loading: false
 }

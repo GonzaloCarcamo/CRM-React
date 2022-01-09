@@ -36,4 +36,6 @@ const Client = ({client, handleDelete}) => {
     )
 }
 
+
+
 export default Client
