@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import './show.css'
+import Spinner from '../components/Spinner'
 
 const ShowClient = () => {
 
     const [client, setClient] = useState({})
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const {id} = useParams()
 
     useEffect(() => {
-        setLoading(!loading)
+        
 
         const getClientAPI = async () => {
             try {
@@ -24,7 +25,10 @@ const ShowClient = () => {
                 console.log(error)
             }
 
-            setLoading(false)
+            setTimeout(() => {
+                setLoading(!loading)
+            }, 1000);
+            
         }
 
         getClientAPI()
@@ -32,10 +36,7 @@ const ShowClient = () => {
 
     return(
 
-        Object.keys(client).length === 0 ? <p>There are not results</p> : (
-        
-            
-        
+        loading ? <Spinner/> : Object.keys(client).length === 0 ? <p>There are not results</p> : (
         
         <div className="card">
             {loading ? 'loading...' : (
