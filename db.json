@@ -7,6 +7,14 @@
       "telephone": "56950869897",
       "notes": "Esto es una prueba",
       "id": 1
+    },
+    {
+      "name": "Nua Technologies",
+      "business": "Nua Technology",
+      "email": "nua@nua.com",
+      "telephone": "123456",
+      "notes": "Esto es una prueba",
+      "id": 2
     }
   ]
 }
