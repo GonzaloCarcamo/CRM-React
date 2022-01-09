@@ -33,7 +33,7 @@ const Formulario = ({client, loading}) => {
 
             if(client.id){
 
-                const url = `http://localhost:4000/clients/${client.id}`
+                const url = `${import.meta.env.VITE_URL}/${client.id}`
 
                 res = await fetch(url, {
                     method:"PUT",
@@ -44,7 +44,7 @@ const Formulario = ({client, loading}) => {
                 })
 
             }else{
-                const url = 'http://localhost:4000/clients'
+                const url = import.meta.env.VITE_URL
 
                 res = await fetch(url, {
                     method:"POST",

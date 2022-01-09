@@ -8,7 +8,7 @@ const Main = () => {
     useEffect(() => {
         const getClientsAPI = async () => {
             try {
-                const url = 'http://localhost:4000/clients'
+                const url = import.meta.env.VITE_URL
                 const res = await fetch(url)
                 const result = await res.json()
 
@@ -30,7 +30,7 @@ const Main = () => {
 
         if(confirmar){
             try {
-                const url = `http://localhost:4000/clients/${id}`
+                const url = `${import.meta.env.VITE_URL}/${id}`
 
                 const res = await fetch(url, {
                     method: 'DELETE'

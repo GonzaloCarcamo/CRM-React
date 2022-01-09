@@ -15,7 +15,7 @@ const ShowClient = () => {
 
         const getClientAPI = async () => {
             try {
-                const url = `http://localhost:4000/clients/${id}`
+                const url = `${import.meta.env.VITE_URL}/${id}`
                 const res = await fetch(url)
                 const result = await res.json()
 

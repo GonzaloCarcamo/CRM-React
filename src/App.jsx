@@ -8,6 +8,8 @@ import ShowClient from './pages/ShowClient'
 
 function App() {
 
+  console.log(import.meta.env)
+
   return (
     <BrowserRouter>
       <Routes>
