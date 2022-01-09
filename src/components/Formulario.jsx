@@ -4,8 +4,9 @@ import * as Yup from 'yup'
 import './formulario.css'
 import Alerts from './Alerts'
 import { useNavigate } from 'react-router-dom'
+import Spinner from './Spinner'
 
-const Formulario = () => {
+const Formulario = ({client, loading}) => {
 
     const navigate = useNavigate()
 
@@ -26,19 +27,41 @@ const Formulario = () => {
     })
 
     const handleSubmit = async (values) => {
-        try {
-            const url = 'http://localhost:4000/clients'
+        try { 
 
-            const res = await fetch(url, {
-                method:"POST",
-                body: JSON.stringify(values),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
+            let res
 
-            const result = await res.json()
+            if(client.id){
 
+                const url = `http://localhost:4000/clients/${client.id}`
+
+                res = await fetch(url, {
+                    method:"PUT",
+                    body: JSON.stringify(values),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+    
+                const result = await res.json()
+    
+                navigate('/clients')
+
+            }else{
+                const url = 'http://localhost:4000/clients'
+
+                res = await fetch(url, {
+                    method:"POST",
+                    body: JSON.stringify(values),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+
+            }
+
+            await res.json()
+    
             navigate('/clients')
 
         } catch (error) {
@@ -48,17 +71,22 @@ const Formulario = () => {
 
 
     return(
+
+        loading ? <Spinner /> : (
+
         <div class="formulario">
-            <h2>Register Client</h2>
+            <h2>{client?.name ? 'Edit Client' : 'Add Client'}</h2>
 
             <Formik
                 initialValues={{
-                    name:'',
-                    business: '',
-                    email: '',
-                    telephone: '',
-                    notes: ''
+                    name: client?.name ?? '',
+                    business: client?.business ?? '',
+                    email: client?.email ?? '',
+                    telephone: client?.telephone ?? '',
+                    notes: client?.notes ?? ''
                 }}
+
+                enableReinitialize={true}
 
                 onSubmit={ async (values, {resetForm}) => {
                     await handleSubmit(values)
@@ -149,14 +177,19 @@ const Formulario = () => {
 
                     <input 
                         type="submit"
-                        value="Add client" 
+                        value={client?.name ? 'Edit Client' : 'Add Client'}
                     />
                 </Form>
                 )}}
             </Formik>
         </div>
-        
+        )
     )
+}
+
+Formulario.defaultPropos = {
+    client: {},
+    loading: false
 }
 
 export default Formulario

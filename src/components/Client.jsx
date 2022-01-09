@@ -21,7 +21,10 @@ const Client = ({client}) => {
                 
                 >Show</button>
                 
-                <button type="button">Edit</button>
+                <button 
+                    type="button"
+                    onClick={() => navigate(`/clients/edit/${id}`)}
+                >Edit</button>
                 
                 <button className="delete" type="button">Delete</button>
             </td>
