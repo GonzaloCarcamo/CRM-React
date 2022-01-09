@@ -1,8 +1,10 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom"
 
 const Client = ({client}) => {
 
-    const {name, business, email, telephone, notes} = client
+    const navigate = useNavigate()
+
+    const {name, business, email, telephone, notes, id} = client
 
     return(
         <tr>
@@ -13,8 +15,14 @@ const Client = ({client}) => {
             </td>
             <td>{business}</td>
             <td className='buttons'>
-            <button type="button">Show</button>
+                <button 
+                    type="button"
+                    onClick={() => navigate(`/clients/${id}`)}
+                
+                >Show</button>
+                
                 <button type="button">Edit</button>
+                
                 <button className="delete" type="button">Delete</button>
             </td>
         </tr>
