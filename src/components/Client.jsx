@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-const Client = ({client}) => {
+const Client = ({client, handleDelete}) => {
 
     const navigate = useNavigate()
 
@@ -26,7 +26,11 @@ const Client = ({client}) => {
                     onClick={() => navigate(`/clients/edit/${id}`)}
                 >Edit</button>
                 
-                <button className="delete" type="button">Delete</button>
+                <button 
+                    className="delete" 
+                    type="button"
+                    onClick={() => handleDelete(id)}
+                >Delete</button>
             </td>
         </tr>
     )

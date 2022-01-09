@@ -1,84 +1,12 @@
 {
   "clients": [
     {
-      "name": "UPDATE",
-      "business": "Gonzalo",
-      "email": "gonzalo.eduardo.carcamo@gmail.com",
-      "telephone": "1234656",
-      "notes": "Recomendado por otro cliente. Tiene descuento",
-      "id": 1
-    },
-    {
       "name": "Otro cliente",
       "business": "Otra empresa",
       "email": "otro@otro.com",
       "telephone": "123123",
       "notes": "Otro comentario",
       "id": 2
-    },
-    {
-      "name": "Otro cliente",
-      "business": "Otra empresa",
-      "email": "otro@otro.com",
-      "telephone": "123123",
-      "notes": "Otro comentario",
-      "id": 3
-    },
-    {
-      "name": "Tercer Nombre",
-      "business": "Tercera Empresa",
-      "email": "tercero@tercero.com",
-      "telephone": "",
-      "notes": "",
-      "id": 4
-    },
-    {
-      "name": "Cuarto Nombre",
-      "business": "Cuarta Empresa",
-      "email": "gon@gon.com",
-      "telephone": "",
-      "notes": "",
-      "id": 5
-    },
-    {
-      "name": "Cuarto Nombre",
-      "business": "Cuarta Empresa",
-      "email": "gon@gon.com",
-      "telephone": "",
-      "notes": "",
-      "id": 6
-    },
-    {
-      "name": "Cuarto Nombre",
-      "business": "Cuarta Empresa",
-      "email": "gon@gon.com",
-      "telephone": "",
-      "notes": "",
-      "id": 7
-    },
-    {
-      "name": "Cuarto Nombre",
-      "business": "Cuarta Empresa",
-      "email": "gon@gon.com",
-      "telephone": "",
-      "notes": "",
-      "id": 8
-    },
-    {
-      "name": "Cuarto Nombre",
-      "business": "Cuarta Empresa",
-      "email": "gon@gon.com",
-      "telephone": "",
-      "notes": "",
-      "id": 9
-    },
-    {
-      "name": "Gonzalo",
-      "business": "Gonzalo",
-      "email": "gonzalo.eduardo.carcamo@gmail.com",
-      "telephone": "123",
-      "notes": "123123",
-      "id": 10
     }
   ]
 }

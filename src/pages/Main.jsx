@@ -23,6 +23,31 @@ const Main = () => {
 
     }, [])
 
+    const handleDelete = async id => {
+        const confirmar = confirm('Are you sure?')
+
+        console.log(confirm)
+
+        if(confirmar){
+            try {
+                const url = `http://localhost:4000/clients/${id}`
+
+                const res = await fetch(url, {
+                    method: 'DELETE'
+                })
+                
+                await res.json()
+
+                const arrayClients = clients.filter(client => client.id !== id)
+
+                setClients(arrayClients)
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
+
     return(
         <div>
             <h2>Clients</h2>
@@ -42,6 +67,7 @@ const Main = () => {
                         <Client
                             key={client.id}
                             client={client}
+                            handleDelete={handleDelete}
                         />
                     ))}
                 </tbody>
